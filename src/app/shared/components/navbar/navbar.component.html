@@ -1,0 +1,31 @@
+<nav class="topbar">
+  <div class="brand" routerLink="/" aria-label="Bloom & Co home">
+    <div class="brand__icon">
+      <span class="leaf">✿</span>
+    </div>
+    <div class="brand__text">
+      <span class="brand__name">Bloom&amp;Co.</span>
+      <small>Better Than, Breathe Coys.</small>
+    </div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+    <li><a routerLink="/shop" routerLinkActive="active">Shop</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+  </ul>
+
+  <div class="nav-tools">
+    <label class="search-box" aria-label="Search products">
+      <input type="text" placeholder="Search for products..." />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </label>
+
+    <div class="icon-group">
+      <button type="button" class="icon-btn" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i></button>
+      <button type="button" class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
+      <button type="button" class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
+    </div>
+  </div>
+</nav>
