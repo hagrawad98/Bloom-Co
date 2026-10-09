@@ -1,0 +1,30 @@
+ <section class="auth">
+  <div class="side">
+    <h1>{{ mode === 'login' ? 'Welcome Back!' : 'Join Bloom&amp;Co.' }}</h1>
+    <p>
+      {{ mode === 'login'
+        ? 'Sign in to your account to continue shopping.'
+        : 'Create an account to start shopping.' }}
+    </p>
+
+    <ul>
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg></span>
+        Exclusive Offers
+      </li>
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1 4h13v11H1zM14 8h4l3 3v4h-7z"/><circle cx="5.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg></span>
+        Order Tracking
+      </li>
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></svg></span>
+        Wishlist &amp; More
+      </li>
+    </ul>
+  </div>
+
+  <div class="panel">
+    <div class="tabs">
+      <a routerLink="/login" [class.active]="mode === 'login'">Login</a>
+      <a routerLink="/signup" [class.active]="mode === 'signup'">Sign Up</a>
+    </div>
