@@ -1,4 +1,4 @@
-:host {
+﻿:host {
   --primary-green: #2c5f4d;
   --primary-green-hover: #1e4235;
   --text-dark: #2c3e35;
@@ -30,7 +30,7 @@
   width: 40%;
 }
 .page-banner {
-  background-image: url('/assests/images/products-bg.jpeg');
+  background-image: url('../../../assests/images/products-bg.jpeg');
   background-size: cover;
   background-position: center;
   padding: 50px 5%;
