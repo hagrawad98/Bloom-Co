@@ -1,1 +1,18 @@
-<p>cart works!</p>
+<main class="commerce-page">
+  <header class="page-heading"><div><h1>Your Cart</h1><p><a routerLink="/">Home</a><span>/</span> Cart</p></div></header>
+  <section class="cart-layout" *ngIf="items.length; else emptyCart">
+    <div class="cart-panel">
+      <div class="cart-table-head"><span>Product</span><span>Price</span><span>Quantity</span><span>Total</span><span></span></div>
+      <article class="cart-row" *ngFor="let item of items">
+        <div class="product-cell"><img [src]="item.product.thumbnail" [alt]="item.product.title"><div><h2>{{ item.product.title }}</h2><p>{{ item.product.category | titlecase }}</p></div></div>
+        <strong class="unit-price">EGP {{ item.product.price | number:'1.0-2' }}</strong>
+        <div class="quantity"><button (click)="store.updateQuantity(item.product.id, item.quantity - 1)" aria-label="Decrease quantity">−</button><span>{{ item.quantity }}</span><button (click)="store.updateQuantity(item.product.id, item.quantity + 1)" aria-label="Increase quantity">+</button></div>
+        <strong>EGP {{ item.product.price * item.quantity | number:'1.0-2' }}</strong>
+        <button class="remove-btn" (click)="store.removeFromCart(item.product.id)" aria-label="Remove product"><i class="fa-regular fa-trash-can"></i></button>
+      </article>
+      <a class="continue-link" routerLink="/shop">← Continue Shopping</a>
+    </div>
+    <aside class="summary-card"><h2>Order Summary</h2><div class="summary-line"><span>Subtotal</span><strong>EGP {{ subtotal | number:'1.0-2' }}</strong></div><div class="summary-line"><span>Shipping</span><strong>Calculated at checkout</strong></div><div class="summary-line total"><span>Total</span><strong>EGP {{ subtotal | number:'1.0-2' }}</strong></div><a routerLink="/checkout" class="checkout-btn">Proceed to Checkout</a><p class="secure-note"><i class="fa-solid fa-lock"></i> Secure checkout</p></aside>
+  </section>
+  <ng-template #emptyCart><section class="empty-state"><i class="fa-solid fa-bag-shopping"></i><h2>Your cart is empty</h2><p>Find something you love and it will show up here.</p><a routerLink="/shop" class="checkout-btn">Explore the shop</a></section></ng-template>
+</main>

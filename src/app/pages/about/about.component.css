@@ -1,0 +1,117 @@
+
+/* styling */
+* {
+  box-sizing: border-box;
+}
+/* hero start */
+.hero {
+  border-radius: 20px;
+  margin: auto;
+  color: #2d4a3e;
+  height: 30vh;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url("/assests/images/products-bg.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-text {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+h1{
+  font-weight: 700;
+  font-family:sans-serif ;
+  font-size: 40px;
+}
+p{
+  font-size: 23px;
+}
+/* story start */
+.story-content {
+  display: flex;
+  width: 98%;
+  margin-block: 50px;
+  padding-inline: 20px;
+}
+.story-text{
+  padding-left: 20px;
+}
+.story-content h2 {
+  font-size: 30px;
+   color: #2d4a3e;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.story-content p {
+  width: 85%;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.story-image img {
+  height: 220px;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* features start */
+.features {
+  max-height:80vh ;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  border-top: 1px solid #eee;
+  padding-block: 40px;
+}
+.feature-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.icon{
+  padding-right: 10px;
+}
+.feature-text h4{
+  margin-top: 20px;
+   color: #2d4a3e;
+}
+.feature-text p{
+    color: #555;
+}
+@media (max-width: 992px) and (min-width:450px){
+  .hero{
+     background-position:78% center !important;
+  }
+  .hero h1{
+  font-size: 30px;
+  }
+    .hero p{
+  font-size: 20px;
+  }
+  .story-content{
+    flex-direction: column;
+  }
+  .story-text p{
+    font-size: 18px;
+  }
+  .story-image {
+  width: 90%;
+  margin: auto;
+padding-block: 20px;
+}
+  .features {
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+    margin-block: 40px;
+  }
+}

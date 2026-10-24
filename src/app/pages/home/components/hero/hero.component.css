@@ -1,0 +1,99 @@
+.hero {
+  color: #2d4a3e;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./images/hero-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.hero-tag {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #2d4a3e;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+.hero-title {
+  font-size: 53px;
+  font-weight: 700;
+  color: #1f3a31;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  position: relative;
+  width: 40%;
+}
+.heart-icon {
+  font-size: 28px;
+  color: #1f3a31;
+  font-weight: 300;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+.hero-desc {
+  width: 43%;
+  letter-spacing: 1.4px;
+  font-size: 20px;
+  color: #4b5563;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  font-weight: 600;
+}
+.shop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #233e33;
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 10px rgba(35, 62, 51, 0.2);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.shop-btn:hover {
+  background-color: #1a3027;
+  transform: translateY(-2px);
+  -webkit-transform: translateY(-2px);
+  -moz-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  -o-transform: translateY(-2px);
+}
+@media screen and (max-width: 768px) {
+  .hero {
+  background-position:63% center !important;
+  }
+  .hero-tag {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .hero-title {
+    width: 70%;
+    margin-top: 10px;
+    font-size: 32px;
+  }
+  .heart-icon {
+    font-size: 24px;
+  }
+
+.hero-desc {
+  width: 65%;
+  font-size: 14px;
+}
+}

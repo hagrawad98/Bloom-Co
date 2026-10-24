@@ -1,1 +1,23 @@
-<p>checkout works!</p>
+<main class="checkout-page">
+  <header class="checkout-heading"><div><p class="eyebrow">ALMOST YOURS</p><h1>Checkout</h1><p><a routerLink="/">Home</a><span>/</span><a routerLink="/cart">Cart</a><span>/</span> Checkout</p></div></header>
+  <div class="checkout-layout" *ngIf="items.length; else emptyCart">
+    <form class="delivery-card" [formGroup]="form" (ngSubmit)="placeOrder()" novalidate>
+      <div class="section-title"><span>01</span><div><h2>Delivery details</h2><p>Where should we send your order?</p></div></div>
+      <div class="fields-grid">
+        <label class="field full">Full name<input type="text" formControlName="fullName" placeholder="Your full name" autocomplete="name"><small *ngIf="form.get('fullName')?.touched && form.get('fullName')?.invalid">Please enter your name.</small></label>
+        <label class="field">Phone number<input type="tel" formControlName="phone" placeholder="01xxxxxxxxx" autocomplete="tel"><small *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid">Enter a valid phone number.</small></label>
+        <label class="field">City<input type="text" formControlName="city" placeholder="City"></label>
+        <label class="field full">Street address<input type="text" formControlName="address" placeholder="Building, street, area" autocomplete="street-address"><small *ngIf="form.get('address')?.touched && form.get('address')?.invalid">Please enter your delivery address.</small></label>
+        <label class="field full">Order notes <span class="optional">(optional)</span><textarea formControlName="notes" rows="3" placeholder="Anything we should know?"></textarea></label>
+      </div>
+      <div class="account-note" *ngIf="store.currentUser; else loginRequired"><i class="fa-regular fa-circle-check"></i><span>Signed in as <strong>{{ store.currentUser.email }}</strong></span></div>
+      <ng-template #loginRequired><div class="account-note needs-login"><i class="fa-regular fa-user"></i><span>Please <a routerLink="/login" [queryParams]="{returnUrl:'/checkout'}">log in or create an account</a> before placing your order.</span></div></ng-template>
+      <p class="checkout-error" *ngIf="error" role="alert">{{ error }}</p>
+      <button type="submit" class="place-order-btn"><span>Place order via WhatsApp</span><i class="fa-brands fa-whatsapp"></i></button>
+      <p class="checkout-footnote">Your order details will be sent to our team to confirm delivery.</p>
+    </form>
+    <aside class="order-card"><h2>Your order</h2><div class="order-items"><div class="order-item" *ngFor="let item of items"><img [src]="item.product.thumbnail" [alt]="item.product.title"><div class="item-info"><strong>{{ item.product.title }}</strong><span>Qty {{ item.quantity }}</span></div><strong>EGP {{ item.product.price * item.quantity | number:'1.0-2' }}</strong></div></div><div class="order-total"><span>Total</span><strong>EGP {{ total | number:'1.0-2' }}</strong></div><p class="payment-note"><i class="fa-solid fa-truck"></i> Delivery and payment are confirmed with you on WhatsApp.</p></aside>
+  </div>
+  <ng-template #emptyCart><section class="empty-checkout"><i class="fa-solid fa-bag-shopping"></i><h2>Your cart is empty</h2><a routerLink="/shop">Continue shopping</a></section></ng-template>
+</main>
+

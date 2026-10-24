@@ -1,0 +1,33 @@
+<main class="auth-page">
+  <section class="auth-card">
+    <aside class="auth-art">
+      <div class="art-copy"><span class="eyebrow">A LITTLE MORE YOU</span><h1>Make room for<br>what feels good.</h1><p>Thoughtful finds for the moments that make a home.</p></div>
+    </aside>
+    <div class="auth-content">
+      <div class="auth-tabs" role="tablist" aria-label="Account access">
+        <button type="button" [class.active]="mode === 'login'" (click)="setMode('login')">Login</button>
+        <button type="button" [class.active]="mode === 'signup'" (click)="setMode('signup')">Sign Up</button>
+      </div>
+      <h2>{{ mode === 'login' ? 'Login to Your Account' : 'Create Your Account' }}</h2>
+      <p class="intro">{{ mode === 'login' ? 'Welcome back. Enter your details below.' : 'Join us and find something you love.' }}</p>
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <label *ngIf="mode === 'signup'" for="auth-name">Full name</label>
+        <input *ngIf="mode === 'signup'" id="auth-name" type="text" formControlName="name" placeholder="Your name" autocomplete="name">
+        <small class="field-error" *ngIf="mode === 'signup' && form.get('name')?.touched && form.get('name')?.invalid">Please enter your name.</small>
+        <label for="auth-email">Email address</label>
+        <input id="auth-email" type="email" formControlName="email" placeholder="you@example.com" autocomplete="email">
+        <small class="field-error" *ngIf="form.get('email')?.touched && form.get('email')?.invalid">Enter a valid email address.</small>
+        <label for="auth-password">Password</label>
+        <div class="password-wrap"><input id="auth-password" [type]="showPassword ? 'text' : 'password'" formControlName="password" placeholder="Enter your password" [autocomplete]="mode === 'login' ? 'current-password' : 'new-password'"><button type="button" class="show-password" (click)="showPassword = !showPassword" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"><i [class]="showPassword ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye'"></i></button></div>
+        <small class="field-error" *ngIf="form.get('password')?.touched && form.get('password')?.invalid">Password must be at least 6 characters.</small>
+        <div class="form-options" *ngIf="mode === 'login'"><label class="remember"><input type="checkbox" formControlName="remember"> Remember me</label><span>Secure account access</span></div>
+        <p class="form-error" *ngIf="error" role="alert">{{ error }}</p>
+        <button class="submit-btn" type="submit">{{ mode === 'login' ? 'Login' : 'Create Account' }}</button>
+      </form>
+      <p class="switch-prompt" *ngIf="mode === 'login'">Don't have an account? <button type="button" (click)="setMode('signup')">Sign Up</button></p>
+      <p class="switch-prompt" *ngIf="mode === 'signup'">Already have an account? <button type="button" (click)="setMode('login')">Login</button></p>
+      <a class="back-link" routerLink="/">Continue shopping</a>
+    </div>
+  </section>
+</main>
+

@@ -1,0 +1,42 @@
+<section class="best-sellers">
+  <div class="section-header">
+    <h2>Best Sellers</h2>
+    <a href="/shop" class="view-all">View All &rarr;</a>
+  </div>
+
+  <div class="best-sellers-container">
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of products">
+        <div class="product-image-box">
+          <span class="discount-badge" *ngIf="product.discountPercentage">
+            -{{ product.discountPercentage | number:'1.0-0' }}%
+          </span>
+          <button class="wishlist-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+          <img [src]="product.thumbnail" [alt]="product.title" />
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">{{ product.title }}</h3>
+          <div class="product-rating">
+            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="rating-count">({{ product.rating | number:'1.1-1' }})</span>
+          </div>
+          <div class="product-pricing">
+            <span class="current-price">EGP {{ product.price }}</span>
+            <span class="old-price" *ngIf="product.discountPercentage">
+              EGP {{ product.price / (1 - product.discountPercentage / 100) | number:'1.0-0' }}
+            </span>
+          </div>
+          <button class="add-to-cart-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="new-arrivals-banner">
+      <div class="banner-content">
+        <h2>New Arrivals</h2>
+        <p>Fresh styles, just for you.</p>
+        <a href="/shop" class="explore-btn">Explore New &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>

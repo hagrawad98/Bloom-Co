@@ -1,0 +1,54 @@
+.features {
+  background-color: #f1f3ed;
+  padding: 25px 30px;
+  width: 100%;
+  margin-block: 20px;
+}
+
+.features .container-fluid {
+  height: 18vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 220px;
+}
+
+.feature-icon {
+  font-size: 30px;
+  color: #1b3b36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-text h3 {
+  font-size: 19px;
+  font-weight: 600;
+  color: #1b3b36;
+  margin: 0 0 3px 0;
+}
+
+.feature-text p {
+  font-size: 15px;
+  color: #666666;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .features-bar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}

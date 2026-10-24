@@ -1,31 +1,94 @@
-<nav class="topbar">
-  <div class="brand" routerLink="/" aria-label="Bloom & Co home">
-    <div class="brand__icon">
-      <span class="leaf">✿</span>
+<nav class="topbar navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-between w-100 d-lg-none">
+
+    <!-- Brand / Logo -->
+      <a class="brand navbar-brand m-0" routerLink="/" aria-label="Bloom & Co home">
+        <div class="brand__icon">
+          <span class="leaf">✿</span>
+        </div>
+        <div class="brand__text">
+          <span class="brand__name">Bloom&amp;Co.</span>
+          <small>Better Than, Breathe Coys.</small>
+        </div>
+      </a>
+
+      <!-- Menu Toggle  -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        [attr.aria-expanded]="menuOpen"
+        aria-label="Toggle navigation"
+        (click)="toggleMenu()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
     </div>
-    <div class="brand__text">
-      <span class="brand__name">Bloom&amp;Co.</span>
-      <small>Better Than, Breathe Coys.</small>
-    </div>
+
+
+    <a class="brand navbar-brand d-none d-lg-flex" routerLink="/" aria-label="Bloom & Co home">
+      <div class="brand__icon">
+        <span class="leaf">✿</span>
+      </div>
+      <div class="brand__text">
+        <span class="brand__name">Bloom&amp;Co.</span>
+        <small>Better Than, Breathe Coys.</small>
+      </div>
+    </a>
+
+    <!-- Toggle -->
+    <button
+      class="navbar-toggler d-none"
+      type="button"
+      (click)="toggleMenu()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu Links -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.show]="menuOpen">
+      <ul class="nav-links navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active" (click)="closeMenu()">Shop</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a>
+        </li>
+      </ul>
+
+      <!-- Search Form  -->
+    <form class="d-flex align-items-center gap-3" role="search" (submit)="onSearch(); $event.preventDefault()">
+  <label class="search-box" aria-label="Search products">
+    <input
+      type="text"
+      placeholder="Search for products..."
+      [(ngModel)]="searchQuery"
+      name="search"
+    />
+    <i class="fa-solid fa-magnifying-glass" (click)="onSearch()" style="cursor: pointer;"></i>
+  </label>
+
+  <div class="icon-group">
+    <a routerLink="/cart" class="icon-btn" [attr.aria-label]="'Cart, ' + cartCount + ' items'">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span class="icon-badge" *ngIf="cartCount > 0">{{ cartCount }}</span>
+    </a>
+    <a routerLink="/wishlist" class="icon-btn" [attr.aria-label]="'Wishlist, ' + wishlistCount + ' items'">
+      <i class="fa-regular fa-heart"></i>
+      <span class="icon-badge" *ngIf="wishlistCount > 0">{{ wishlistCount }}</span>
+    </a>
+    <a routerLink="/login" class="icon-btn" aria-label="Account">
+      <i class="fa-regular fa-user"></i>
+    </a>
   </div>
+</form>
 
-  <ul class="nav-links">
-    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
-    <li><a routerLink="/shop" routerLinkActive="active">Shop</a></li>
-    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
-    <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
-  </ul>
-
-  <div class="nav-tools">
-    <label class="search-box" aria-label="Search products">
-      <input type="text" placeholder="Search for products..." />
-      <i class="fa-solid fa-magnifying-glass"></i>
-    </label>
-
-    <div class="icon-group">
-      <button type="button" class="icon-btn" aria-label="Cart"><i class="fa-solid fa-bag-shopping"></i></button>
-      <button type="button" class="icon-btn" aria-label="Wishlist"><i class="fa-regular fa-heart"></i></button>
-      <button type="button" class="icon-btn" aria-label="Account"><i class="fa-regular fa-user"></i></button>
     </div>
   </div>
 </nav>

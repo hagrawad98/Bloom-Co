@@ -1,11 +1,12 @@
 export interface Product {
   id: number;
-  name: string;
+  title: string;
   description: string;
   price: number;
-  imageUrl: string;
+  thumbnail: string;
   category: string;
   rating: number;
+  discountPercentage?: number;
 }
 
 export interface CartItem {

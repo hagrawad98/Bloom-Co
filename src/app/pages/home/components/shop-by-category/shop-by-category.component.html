@@ -1,0 +1,16 @@
+<section class="Shop-by-category">
+  <div class="categories-header">
+    <h2>Shop by Category</h2>
+    <a routerLink="/shop" class="view-all">View All &rarr;</a>
+  </div>
+
+  <div class="categories-grid">
+    <a class="category-card" *ngFor="let category of categories"
+      [routerLink]="['/shop']" [queryParams]="{ category: category.slug }">
+      <div class="category-image">
+        <img [src]="category.image" [alt]="category.name" />
+      </div>
+      <h3 class="category-title">{{ category.name | titlecase }}</h3>
+    </a>
+  </div>
+</section>

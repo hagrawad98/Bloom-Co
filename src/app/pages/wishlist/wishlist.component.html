@@ -1,1 +1,12 @@
-<p>wishlist works!</p>
+<main class="commerce-page wishlist-page">
+  <header class="page-heading"><div><h1>My Wishlist</h1><p><a routerLink="/">Home</a><span>/</span> Wishlist</p></div></header>
+  <section class="wishlist-panel" *ngIf="items.length; else emptyWishlist">
+    <article class="wishlist-row" *ngFor="let product of items">
+      <img [src]="product.thumbnail" [alt]="product.title">
+      <div class="wishlist-product"><h2>{{ product.title }}</h2><p>EGP {{ product.price | number:'1.0-2' }}</p></div>
+      <button class="add-button" (click)="store.moveWishlistItemToCart(product)">Add to Cart</button>
+      <button class="remove-btn" (click)="store.removeFromWishlist(product.id)" aria-label="Remove from wishlist"><i class="fa-regular fa-trash-can"></i></button>
+    </article>
+  </section>
+  <ng-template #emptyWishlist><section class="empty-state"><i class="fa-regular fa-heart"></i><h2>Your wishlist is empty</h2><p>Tap the heart on a product to save it here.</p><a routerLink="/shop" class="checkout-btn">Explore the shop</a></section></ng-template>
+</main>

@@ -1,0 +1,125 @@
+<div class="shop-page">
+  <header class="page-banner">
+    <div class="banner-content">
+      <h1>Shop</h1>
+      <p>Discover your next favorite thing.</p>
+    </div>
+  </header>
+
+  <div class="breadcrumb">
+    <span class="home-link" (click)="goToHome()">Home</span>
+    <span class="separator">/</span>
+    <span class="active">Shop</span>
+  </div>
+
+
+  <div class="shop-container">
+    <aside class="sidebar">
+      <div class="filter-group">
+        <h3>Search</h3>
+        <input type="text" placeholder="Search products..." (input)="onSearch($event)" class="search-input">
+      </div>
+
+      <div class="filter-group">
+        <h3>Categories</h3>
+        <ul class="category-list">
+          <li
+            [class.active]="selectedCategory === 'All Products'"
+            (click)="selectCategory('All Products')">
+            All Products <span>({{ totalProducts }})</span>
+          </li>
+
+          <li *ngFor="let cat of categories"
+            [class.active]="selectedCategory === cat.slug"
+            (click)="selectCategory(cat.slug)">
+            {{ cat.name | titlecase }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Price Range -->
+      <div class="filter-group">
+        <h3>Price Range</h3>
+        <div class="price-slider">
+          <input
+            type="range"
+            min="0"
+            max="5000"
+            [value]="currentPrice"
+            (input)="onPriceChange($event)"
+            class="slider">
+          <div class="price-labels">
+            <span>EGP 0</span>
+            <span>EGP {{ currentPrice }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rating -->
+      <div class="filter-group">
+        <h3>Rating</h3>
+        <ul class="rating-list">
+          <li><span class="stars">★★★★★</span> & up</li>
+          <li><span class="stars">★★★★☆</span> & up</li>
+          <li><span class="stars">★★★☆☆</span> & up</li>
+          <li><span class="stars">★★☆☆☆</span> & up</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Products Grid -->
+    <main class="products-area">
+
+      <!-- Sort Bar -->
+      <div class="sort-bar">
+        <span>Sort by:</span>
+        <select (change)="onSort($event)">
+          <option value="">Most Popular</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+
+      <!-- Grid -->
+      <div class="products-grid">
+
+        <div class="product-card" *ngFor="let product of products">
+          <div class="image-box">
+            <span class="discount-badge" *ngIf="product.discountPercentage">
+              -{{ product.discountPercentage | number:'1.0-0' }}%
+            </span>
+            <button class="wishlist-btn" [class.selected]="isInWishlist(product.id)" (click)="toggleWishlist(product)" [attr.aria-label]="isInWishlist(product.id) ? 'Remove from wishlist' : 'Add to wishlist'"><i class="fa-solid fa-heart"></i></button>
+            <img [src]="product.thumbnail" [alt]="product.title">
+            <button class="add-to-cart" (click)="addToCart(product)">Add to Cart</button>
+          </div>
+          <div class="product-info">
+            <h4>{{ product.title }}</h4>
+            <div class="rating">
+              <span class="stars">★★★★★</span>
+              ({{ product.rating }})
+            </div>
+            <div class="price">
+              <span class="current">EGP {{ product.price }}</span>
+              <span class="old" *ngIf="product.discountPercentage">
+                EGP {{ (product.price / (1 - product.discountPercentage/100)) | number:'1.0-0' }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+
+        <app-error *ngIf="!isLoadingProducts && products.length === 0"></app-error>
+
+      </div>
+
+      <div class="pagination">
+        <button class="page-btn" (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">&lt;</button>
+        <button class="page-btn" *ngFor="let page of pageNumbers"
+          [class.active]="currentPage === page" (click)="goToPage(page)">{{ page }}</button>
+        <button class="page-btn" (click)="goToPage(currentPage + 1)"
+          [disabled]="currentPage === pageNumbers.length || pageNumbers.length === 0">&gt;</button>
+      </div>
+
+    </main>
+  </div>
+</div>

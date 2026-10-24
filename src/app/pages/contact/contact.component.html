@@ -1,0 +1,26 @@
+<main class="contact-page">
+  <header class="contact-banner">
+    <div class="banner-inner"><h1>Contact Us</h1><p>We'd love to hear from you.</p></div>
+  </header>
+  <div class="contact-breadcrumb"><a routerLink="/">Home</a><span>/</span><span>Contact</span></div>
+  <section class="contact-layout">
+    <aside class="contact-info">
+      <h2>Get in Touch</h2>
+      <article class="info-item"><span class="info-icon"><i class="fa-solid fa-phone-volume"></i></span><div><a href="tel:+201012545678">+20 12 7085 1932</a><p>Available from 9am - 9pm</p></div></article>
+      <article class="info-item"><span class="info-icon"><i class="fa-regular fa-envelope"></i></span><div><a href="mailto:support@bloomco.com">support&#64;bloomco.com</a><p>We'll reply within 24 hours</p></div></article>
+      <article class="info-item"><span class="info-icon"><i class="fa-solid fa-location-dot"></i></span><div><strong>6 October City, Giza, Egypt</strong><p>Visit us at our office</p></div></article>
+    </aside>
+    <section class="contact-form-card">
+      <h2>Send Us a Message</h2>
+      <form [formGroup]="form" (ngSubmit)="sendMessage()" novalidate>
+        <div class="form-row">
+          <label>Name<input type="text" formControlName="name" placeholder="Your name" autocomplete="name"><small *ngIf="form.get('name')?.touched && form.get('name')?.invalid">Please enter your name.</small></label>
+          <label>Email<input type="email" formControlName="email" placeholder="you@example.com" autocomplete="email"><small *ngIf="form.get('email')?.touched && form.get('email')?.invalid">Enter a valid email address.</small></label>
+        </div>
+        <label class="message-field">Message<textarea formControlName="message" rows="4" placeholder="How can we help you?"></textarea><small *ngIf="form.get('message')?.touched && form.get('message')?.invalid">Please write a message (at least 10 characters).</small></label>
+        <button type="submit">Send Message <i class="fa-brands fa-whatsapp"></i></button>
+        <p class="success-note" *ngIf="submitted" role="status">WhatsApp is opening with your message ready to send.</p>
+      </form>
+    </section>
+  </section>
+</main>
