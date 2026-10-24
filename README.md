@@ -1,27 +1,32 @@
-# ECommerce
+🌿 Bloom&Co. - Modern E-Commerce Web Application
+A full-featured, responsive E-commerce web application built with Angular. Bloom&Co. offers a seamless online shopping experience with clean UI/UX, product filtering, shopping cart management, wishlist functionality, and user authentication.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4.
+✨ Features
+🛍️ User Experience & Storefront
+Home Page: Hero banner carousel, categorized collections, Best Sellers grid, promotional sections, and brand story.
+Product Catalog (Shop Page):
+Dynamic filtering by Category, Price Range, and Star Ratings.
+Sorting options (Most Popular, Price Low/High, Newest).
+Pagination support.
+Product Details Page:
+Multi-image gallery with zoom/thumbnail switcher.
+Detailed specifications, ratings, reviews, and related products recommendations.
+Color/Variant and quantity selectors.
+Shopping Cart: Real-time quantity updates, item removal, and order summary calculation.
+Wishlist: Quick-add favorite items to a dedicated wishlist page.
+User Authentication: Login & Sign Up pages with social login options (Google & Facebook).
+Static / Info Pages: About Us and Contact Us pages with interactive forms and company information.
+🛠️ Tech Stack
+Framework: Angular (v16+)
+Styling: CSS
+Icons: Font Awesome 6
+State Management: RxJS / Angular Signals
+Routing: Angular Router (Lazy Loading implemented for optimal performance)
+🚀 Getting Started
+Follow these steps to set up and run the project locally.
 
-## Development server
+Prerequisites
+Make sure you have Node.js and Angular CLI installed:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Node.js (v18 or higher)
+Angular CLI (npm install -g @angular/cli)
