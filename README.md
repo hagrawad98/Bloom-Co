@@ -1,4 +1,6 @@
 🌿 Bloom&Co. - Modern E-Commerce Web Application
+> **Live website:** [Open Bloom & Co](https://hagrawad98.github.io/Bloom-Co/)
+
 A full-featured, responsive E-commerce web application built with Angular. Bloom&Co. offers a seamless online shopping experience with clean UI/UX, product filtering, shopping cart management, wishlist functionality, and user authentication.
 
 ✨ Features
